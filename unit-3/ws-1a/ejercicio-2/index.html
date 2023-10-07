@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Ejercicio 2</title>
+        <style>
+            input {
+                margin: 10px;
+            }
+            button {
+                margin: 10px;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Encontrar un número dentro de un rango</h2>
+        <label>Ingresar el número para el primer limite:</label>
+        <input type="number" id="limit_1" /><br />
+        <label>Ingresar el segundo número para el segundo limite:</label>
+        <input type="number" id="limit_2" /><br />
+        <label>Ingresar el número a encontrar:</label>
+        <input type="number" id="numero" /><br />
+
+        <button onclick="llamarEvento()">Encontrar</button>
+        <button onclick="limpiarPantalla()">Limpiar</button>
+
+        <p>Resultado:</p>
+        <section id="resultado"></section>
+        <script src="./script.js"></script>
+    </body>
+</html>
