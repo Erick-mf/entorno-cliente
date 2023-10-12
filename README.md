@@ -25,4 +25,4 @@ saludar();
     ├── ws-1a
     └── ws-3
 ```
-\* Puede varias dependiendo del ejercicio 
+\* Puede variar dependiendo del ejercicio 
