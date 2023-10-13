@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 2</title>
+    <style>
+        body {
+            background: #f4f4f4;
+        }
+
+        input {
+            width: 60%;
+        }
+
+        #resultado {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+            background: #f9f9f9;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Palabras y números</h2>
+    <label>Ingresar palabras y números :</label>
+    <input type="text" id="numeros" placeholder="Ingrese palabras y números"><br>
+
+    <button onclick="llamarFuncion()">Enviar</button>
+    <button onclick="limpiar()">Limpiar</button>
+
+    <p>Suma de los números ingresados</p>
+    <section id="resultado">
+    </section>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
