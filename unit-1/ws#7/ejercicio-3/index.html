@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 3</title>
+    <style>
+        input {
+            width: 50%;
+        }
+
+        #resultado {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+            bachground: #f4f4f4;
+            font-size: 1.6rem;
+            border: 1px solid black;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>Cantidad de argumentos</h3>
+    <label>Ingrese una cantidad de argumentos separados por espacios</label>
+    <input type="text" id="argumentos" placeholder="Ingrese una cantidad de argumentos"><br>
+
+    <button onclick="llamarFuncion()">Enviar</button>
+    <button onclick="limpiar()">Limpiar</button>
+
+    <p>Resultado</p>
+    <section id="resultado"></section>
+    <script src="script.js"></script>
+</body>
+
+</html>

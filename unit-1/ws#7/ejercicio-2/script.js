@@ -1,4 +1,4 @@
-function suma(...num) {
+function addOnlyNums(...num) {
     let suma = 0;
 
     for (let i = 0; i < num.length; i++) {
@@ -20,7 +20,7 @@ function llamarFuncion() {
         }
     }
     
-    document.getElementById("resultado").innerHTML = suma(...soloNumeros);
+    document.getElementById("resultado").innerHTML = addOnlyNums(...soloNumeros);
 }
 
 function limpiar() {

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ejercicio 7</title>
+        <style>
+        input {
+            width: 50%;
+        }
+        #resultado{
+            height: 20vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid black;
+            bachground: #f5f5f5;
+        }
+        </style>
+</head>
+
+<body>
+    <h3>Combinar arrays</h3>
+    <label>Ingresar los valores del primer array</label>
+    <input type="text" id="array1" placeholde="Ingrese los valores separados por espacios"><br>
+    <label>Ingresar los valores del siguiente array</label>
+    <input type="text" id="array2" placeholde="Ingrese los valores separados por espacios"><br>
+
+    <button onclick="llamarFuncion()">Enviar</button>
+    <button onclick="agregarArray()">Agrgar otro array</button>
+    <button onclick="limpiar()">Limpiar</button>
+
+    <p>Resultado</p>
+    <section id="resultado"></section>
+    <script src="script.js"></script>
+</body>
+
+</html>
