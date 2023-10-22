@@ -5,14 +5,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Ejercicio 1</title>
-        <style>
+    <style>
         input {
             margin: 5px;
         }
+
         button {
             margin: 5px;
         }
-        </style>
+    </style>
 </head>
 
 <body>
@@ -20,10 +21,14 @@
     <label>Ingresar el tamaño</label>
     <input type="number" id="tamanio"><br>
 
-    <button>Comprobar solución</button><button>Limpiar tablero</button>
+    <button onclick="crear()">Crear tablero</button>
+    <button onclick="empezar()">Iniciar juego</button>
+    <button onclick="limpiar()">Limpiar pantalla</button>
+    <button onclick="verSolucion()">Rendirse</button>
 
     <p>Tablero</p>
-    <section id="resultado"></section>
+    <section id="tablero"></section><br>
+    <scrtion id="solucion"></scrtion>
     <script src="Puzzle.js"></script>
 </body>
 

@@ -3,8 +3,9 @@ class Puzzle {
         this.tamanio = tamanio;
         this.tablero = this.crearTablero();
         this.solucion = this.solucion();
-        this.mostrarTablero();
-        this.posicionesAleatorias();
+        this.historial = [];
+        this.dibujar();
+        this.tiempoInicio = null;
     }
 
     crearTablero() {
@@ -26,14 +27,34 @@ class Puzzle {
         return tablero;
     }
 
-    mostrarTablero() {
+    dibujar() {
+        let tabla = "<table cellpadding=10 cellspacing=0 border=1px>";
+
         for (let i = 0; i < this.tamanio; i++) {
-            let fila = "";
+            tabla += "<tr align=center>";
             for (let j = 0; j < this.tamanio; j++) {
-                fila += this.tablero[i][j] + "    ";
+                tabla += "<td>" + this.tablero[i][j] + "</td>";
             }
-            console.log(fila);
+            tabla += "</tr>";
         }
+        tabla += "</table>";
+
+        document.getElementById("tablero").innerHTML = tabla;
+    }
+
+    posicionesAleatorias() {
+        this.historial = [];
+        let movimientos = ['arriba', 'abajo', 'izquierda', 'derecha'];
+
+        for (let i = 0; i < this.tamanio * this.tamanio; i++) {
+            let movimiento;
+            do {
+                movimiento = movimientos[Math.floor(Math.random() * movimientos.length)];
+            } while (!this.moverEspacio(movimiento));
+            this.historial.push(movimiento);
+        }
+        // inicia el cronometro
+        this.tiempoInicio = Date.now();
     }
 
     solucion() {
@@ -52,24 +73,12 @@ class Puzzle {
                 }
             }
         }
+
         return true;
     }
 
-    posicionesAleatorias() {
-        console.log("cambiarPosiciones");
-        for (let i = 0; i < this.tamanio; i++) {
-            for (let j = 0; j < this.tamanio; j++) {
-                let posNueva = Math.floor(Math.random() * this.tamanio);
-                let posNueva2 = Math.floor(Math.random() * this.tamanio);
-
-                let aux = this.tablero[i][j];
-                this.tablero[i][j] = this.tablero[posNueva][posNueva2];
-                this.tablero[posNueva][posNueva2] = aux;
-            }
-        }
-    }
-
     moverEspacio(movimiento) {
+        // esto es para detectar los indices donde esta el " "
         let espacioI, espacioJ;
         for (let i = 0; i < this.tamanio; i++) {
             for (let j = 0; j < this.tamanio; j++) {
@@ -84,15 +93,48 @@ class Puzzle {
         let nuevoI = espacioI + (movimiento === 'arriba' ? -1 : movimiento === 'abajo' ? 1 : 0);
         let nuevoJ = espacioJ + (movimiento === 'izquierda' ? -1 : movimiento === 'derecha' ? 1 : 0);
 
+        // se comprueba si el movimiento es válido
         if (nuevoI >= 0 && nuevoI < this.tamanio && nuevoJ >= 0 && nuevoJ < this.tamanio) {
             [this.tablero[espacioI][espacioJ], this.tablero[nuevoI][nuevoJ]] = [this.tablero[nuevoI][nuevoJ], this.tablero[espacioI][espacioJ]];
+
+            this.dibujar();
+
+            // // comprueba si el tablero está resuelto después de cada movimiento
+            if (this.revisarSolucion()) {
+                // Si el juego está resuelto, calcula el tiempo que tomó resolverlo
+                if (this.tiempoInicio) {
+                    let tiempoFinal = Date.now();
+                    let tiempoTotal = tiempoFinal - this.tiempoInicio;
+                    console.log(`¡Felicidades! Has resuelto el puzzle en ${tiempoTotal / 1000} segundos.`);
+                }
+            }
+            // es movimiento es valido
+            return true;
         } else {
-            console.log('Movimiento no válido');
+            // El movimiento no fue válido
+            return false;
         }
     }
 }
 
-let tablero = new Puzzle(4);
-tablero.mostrarTablero();
-console.log(tablero.revisarSolucion());
+let tablero;
+function crear() {
+    let num = document.getElementById("tamanio").value;
+    tablero = new Puzzle(num);
+}
+
+function empezar() {
+    tablero.posicionesAleatorias();
+    tablero.dibujar();
+}
+
+function verSolucion() {
+    document.getElementById("solucion").innerHTML = `Movimientos: ${tablero.historial.reverse()}`;
+}
+
+function limpiar() {
+    document.getElementById("tamanio").value = "";
+    document.getElementById("tablero").innerHTML = "";
+    document.getElementById("solucion").innerHTML = "";
+}
 
