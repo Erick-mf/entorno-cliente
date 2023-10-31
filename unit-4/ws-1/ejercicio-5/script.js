@@ -1,6 +1,15 @@
 window.onload = () => {
     tabla();
     dibujar();
+
+    let btn = document.getElementById("btn-limpiar");
+    let tds = document.querySelectorAll("#tabla td");
+
+    btn.onclick = function() {
+        tds.forEach((td) => {
+            td.style.backgroundColor = "white";
+        })
+    }
 }
 
 function tabla() {
@@ -27,8 +36,11 @@ function dibujar() {
             // tecla shift boolean
         } else if (color.shiftKey) {
             color.target.style.backgroundColor = "blue";
+        } else if (color.altKey) {
+            color.target.style.backgroundColor = "white";
         }
     };
 }
+
 
 // NOTE: target sirve para manipular el elemento que causo el evento (en este caso la celda <td>)

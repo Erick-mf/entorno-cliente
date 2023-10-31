@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+#formulario {
+    display: flex;
+    padding: 2%;
+    flex-direction: column;
+    width: 80%;
+    height: 50vh;
+    border: 1px solid black;
+}
+
+label {
+    font-size: 1.5rem;
+}
+
+input {
+    width: 50%;
+    height: 15%;
+    margin: 10px 0;
+}
+
+.btn {
+    width: 12%;
+    height: 20%;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #039;
+    font-size: 1.2rem;
+    color: #f2f2f2;
+    letter-spacing: 2px; 
+    border-radius: 5%;
+    border: 1px solid #039;
+}
+
+.btn:hover {
+    background-color: #325bad;
+}
+
+#lista-libros {
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    margin: 40px 0; 
+    padding: 2%;
+    border: 1px solid black;
+    height: 60vh;
+}
+
+.btn-2 {
+    width: 10%;
+    height: 10%;
+    margin-top: 10px;
+    margin-right: 50px;
+    padding: 10px;
+    background-color: #039;
+    font-size: 1.2rem;
+    color: #f2f2f2;
+    letter-spacing: 2px; 
+    border-radius: 5%;
+    border: 1px solid #039;
+}
+
+.btn-2:hover {
+    background-color: #325bad;
+}

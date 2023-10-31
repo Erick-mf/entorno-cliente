@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+h1 {
+    padding: 2%;
+}
+
+input {
+    width: 100%;
+    margin: 5px;
+    padding: 3%;
+}
+
+body {
+    background: radial-gradient(#B0D1ED, #8ca7bd);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.contenedor {
+    background-color: #f2f2f2;
+    width: 20%;
+    height: 60%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 10%;
+    border: 1px solid #B0D1ED;
+}
+
+button {
+    margin: 5% 0;
+    padding: 2%;
+    font-size: 1rem;
+}
