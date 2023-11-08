@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap");
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #f1f5f8;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    background-color: #a5d5f9;
+    padding: 0.5rem 1rem;
+    border: 1px solid #a5d5f9;
+    border-radius: 20%;
+    margin: 1rem;
+}
+
+img {
+    width: 2rem;
+    height: 2rem;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+    background-color: #fff;
+    box-shadow: 0 0 1rem rgb(0 0 0 /50%);
+    min-height: 30rem;
+    width: 50rem;
+}
+
+#section1,
+div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#section1 {
+    flex-wrap: wrap;
+}
+
+#section1a > h1 {
+    text-transform: bold;
+    font-size: 2.5rem;
+}
+
+#grocery-input {
+    width: 65%;
+    height: 2rem;
+    padding-left: 0.5rem;
+}
+
+#grocery-input:focus {
+    outline: 2px solid #2971d0;
+    border-radius: 10px;
+}

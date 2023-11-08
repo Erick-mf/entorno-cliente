@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Pong Game</title>
+        <style>
+            #game {
+                width: 600px;
+                height: 400px;
+                background: black;
+                position: relative;
+            }
+            .paddle {
+                width: 10px;
+                height: 80px;
+                background: white;
+                position: absolute;
+            }
+            .ball {
+                width: 10px;
+                height: 10px;
+                background: white;
+                position: absolute;
+                border-radius: 50%;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="game">
+            <div class="paddle" id="leftPaddle" style="left: 0"></div>
+            <div class="paddle" id="rightPaddle" style="right: 0"></div>
+            <div class="ball" id="ball"></div>
+        </div>
+        <script>
+            const game = document.getElementById("game");
+            const leftPaddle = document.getElementById("leftPaddle");
+            const rightPaddle = document.getElementById("rightPaddle");
+            const ball = document.getElementById("ball");
+
+            let ballX = 300;
+            let ballY = 200;
+            let ballSpeedX = 5;
+            let ballSpeedY = 5;
+
+            let leftPaddleY = 160;
+            let rightPaddleY = 160;
+
+            game.addEventListener("mousemove", (event) => {
+                const mouseY = event.clientY - game.getBoundingClientRect().top;
+                leftPaddleY = mouseY - leftPaddle.offsetHeight / 2;
+            });
+
+            function updateGameArea() {
+                ballX += ballSpeedX;
+                ballY += ballSpeedY;
+
+                if (ballY < 0 || ballY > 390) {
+                    ballSpeedY = -ballSpeedY;
+                }
+
+                if (ballX < 0) {
+                    if (ballY > leftPaddleY && ballY < leftPaddleY + 80) {
+                        ballSpeedX = -ballSpeedX;
+                    }
+                }
+
+                if (ballX > 590) {
+                    if (ballY > rightPaddleY && ballY < rightPaddleY + 80) {
+                        ballSpeedX = -ballSpeedX;
+                    }
+                }
+
+                if (ballX < 0 || ballX > 590) {
+                    // Ball out of bounds
+                    ballX = 300;
+                    ballY = 200;
+                    ballSpeedX = -ballSpeedX;
+                }
+
+                leftPaddle.style.top = leftPaddleY + "px";
+                rightPaddle.style.top = rightPaddleY + "px";
+                ball.style.left = ballX + "px";
+                ball.style.top = ballY + "px";
+            }
+
+            setInterval(updateGameArea, 1000 / 60);
+        </script>
+    </body>
+</html>

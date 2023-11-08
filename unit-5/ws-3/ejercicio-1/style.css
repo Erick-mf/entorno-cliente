@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #fea600;
+    color: white;
+    text-transform: uppercase;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 2rem;
+    font-size: 2rem;
+    height: 100vh;
+}
+
+button {
+    padding: 1rem;
+    border: 1px solid white;
+}
+
+#tiempo {
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+}
+
+#btns {
+    display: flex;
+    justify-content: space-between;
+    width: 30rem;
+    margin-top: 2rem;
+}
