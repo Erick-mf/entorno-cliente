@@ -1,6 +1,17 @@
-let cards = ["1", "1", "2", "2", "3", "3", "4", "4", "5", "5"];
+let cards = [
+    "<img src='./img/circulo.png'>",
+    "<img src='./img/circulo.png'>",
+    "<img src='./img/triangulo.png'>",
+    "<img src='./img/triangulo.png'>",
+    "<img src='./img/cuadrado.png'>",
+    "<img src='./img/cuadrado.png'>",
+    "<img src='./img/octagono.png'>",
+    "<img src='./img/octagono.png'>",
+    "<img src='./img/estrella.png'>",
+    "<img src='./img/estrella.png'>",
+];
 cards.sort(() => 0.5 - Math.random());
-const img = "<img src='./interrogacion.png'>";
+const img = "<img src='./img/interrogacion.png'>";
 
 let flippedCards = [];
 let matchedCards = [];

@@ -1,4 +1,16 @@
-let word = "Valencia";
+let words = [
+    "Valencia",
+    "Madrid",
+    "Barcelona",
+    "Sevilla",
+    "Bilbao",
+    "Granada",
+    "Málaga",
+    "Alicante",
+    "Córdoba",
+    "Zaragoza",
+];
+let word = words[Math.floor(Math.random() * words.length)];
 word = word.toUpperCase();
 let wordArray = word.split("");
 let linesArray = [];

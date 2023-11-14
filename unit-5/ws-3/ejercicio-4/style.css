@@ -64,3 +64,19 @@ div {
     outline: 2px solid #2971d0;
     border-radius: 10px;
 }
+
+#items {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+}
+
+#clear-items {
+    color: red;
+    width: 100%;
+    margin-top: auto;
+    font-size: 1.5rem;
+    letter-spacing: 2px;
+}

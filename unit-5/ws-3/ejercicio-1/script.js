@@ -2,6 +2,7 @@ let hour = 0;
 let minute = 0;
 let second = 0;
 let timer;
+let isRunning = false;
 
 window.onload = () => {
     let btnStart = document.getElementById("btn");
@@ -13,7 +14,24 @@ window.onload = () => {
     btnReset.onclick = resetTimer;
 };
 function startTimer() {
-    timer = setInterval(showTime, 1000);
+    if (!isRunning) {
+        isRunning = true;
+        timer = setInterval(showTime, 1000);
+    }
+}
+
+function stopTimer() {
+    clearInterval(timer);
+    isRunning = false;
+}
+
+function resetTimer() {
+    clearInterval(timer);
+    isRunning = false;
+    hour = 0;
+    minute = 0;
+    second = 0;
+    document.getElementById("tiempo").innerHTML = "00:00:00";
 }
 
 function showTime() {
@@ -34,16 +52,4 @@ function addZero(i) {
         i = "0" + i;
     }
     return i;
-}
-
-function stopTimer() {
-    clearInterval(timer);
-}
-
-function resetTimer() {
-    clearInterval(timer);
-    hour = 0;
-    minute = 0;
-    second = 0;
-    document.getElementById("tiempo").innerHTML = "00:00:00";
 }
